@@ -10,13 +10,21 @@ function Main() {
 
     return (
         <>
-            <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<div>wefwe</div>}></Route>
+                    <Route path="/" element={{/*원준*/}}></Route>
+                    <Route path="/게시글" element={{/*기영*/}}></Route>
+                    <Route path="/게시글수정" element={{/*기영*/}}></Route>
+                    <Route path="/gallery/:name" element={{/*경민*/}}></Route>
+                    <Route path="/gallery/made" element={{/*정우*/}}></Route>
+                    <Route path="/*" element={{/*원준*/}}></Route>
                 </Routes>
-            </BrowserRouter>
         </>
     );
 }
 
 export default Main;
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Pr

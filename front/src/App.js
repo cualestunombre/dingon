@@ -6,6 +6,7 @@ import axios from "axios";
 import Main from "./component/Main";
 import Sticky from "./component/Sticky";
 import Search from "./component/Search";
+import Footer from "./component/Footer"
 const App = (props) => {
   const [value, setValue] = useState("");
   const [isLogin, setIsLogin] = useState(false);
@@ -20,8 +21,10 @@ const App = (props) => {
   return (
     <>
       <Search></Search>
-      <Sticky check={setIsLogin} />
-      <Main />
+      <BrowserRouter>
+        <Main/>
+      </BrowserRouter>
+      <Footer/>
     </>
   );
 };

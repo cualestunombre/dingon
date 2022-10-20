@@ -19,7 +19,7 @@ router.get("/board",async(req,res,next)=>{
 
 router.get("/hit",async(req,res,next)=>{
     try{
-        const query = `select boards.name, COUNT(posts.id) as COUNT from boards inner join posts group by boards.name ORDER BY COUNT DESC LIMIT 10`;
+        const query = `select boards.name, COUNT(posts.id) as COUNT from boards inner join posts on posts.boardId=boards.id group by boards.name ORDER BY COUNT DESC LIMIT 10`;
         const data = await sequelize.query(query,{type:QueryTypes.SELECT});
         res.send({code:200,list:data});
     }
@@ -30,7 +30,7 @@ router.get("/hit",async(req,res,next)=>{
 });
 router.get("/top4",async(req,res,next)=>{
     try{
-        const query = `select boards.name,boards.id, COUNT(posts.id) as COUNT from boards inner join posts group by boards.name ORDER BY COUNT DESC LIMIT 4`;
+        const query = `select boards.name,boards.id, COUNT(posts.id) as COUNT from boards inner join posts on posts.boardId=boards.id group by boards.name ORDER BY COUNT DESC LIMIT 4`;
         const data = await sequelize.query(query,{type:QueryTypes.SELECT});
         for (let i=0; i< data.length; i++){
             const query2 = `select posts.createdAt, posts.userId, posts.clicked, posts.title, posts.id from posts where boardId ="${data[i].id} LIMIT 10"`;

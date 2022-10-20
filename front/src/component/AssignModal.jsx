@@ -119,7 +119,7 @@ function AssignModal({senddata}) {
                     <Button disabled={isNameOk} onClick={()=>{checkIsAlreadyName()}} style={{ marginLeft: "10px" }}>중복확인</Button>
                 </div>
                 <div className='metirial'>
-                    <TextField type="password" style={{ width: "65%" }} className='inputTag' onChange={(e) => { setPw(e.target.value); PsetwriteState(true) }}  label="password" variant="outlined" error={Pwvalidate()} helperText={Pwvalidate() ? "형식에 맞게 입력하세요" : ""} />
+                    <TextField type="password" style={{ width: "66%" }} className='inputTag' onChange={(e) => { setPw(e.target.value); PsetwriteState(true) }}  label="password" variant="outlined" error={Pwvalidate()} helperText={Pwvalidate() ? "형식에 맞게 입력하세요" : ""} />
                 </div>
 
                 <div className='captar'>
