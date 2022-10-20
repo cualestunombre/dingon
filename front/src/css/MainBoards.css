@@ -1,25 +1,20 @@
-.mainBoardsBox {
-  width: 630px;
-  height: 380px;
-  border: 1px solid black;
-  display: inline-block;
-  margin-right: 50px;
-  margin-bottom: 30px;
-}
 .box1 {
-  position: relative;
-  top: 100px;
+  position: fixed;
+  top: 150px;
   left: 100px;
 }
-
-.boxPost {
-  border: 0.5px solid black;
-  margin-bottom: 5px;
-  font-size: 20px;
+.box2 {
+  position: fixed;
+  top: 150px;
+  left: 600px;
 }
-.boardTitle {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 30px;
+.box3 {
+  position: fixed;
+  top: 500px;
+  left: 100px;
+}
+.box4 {
+  position: fixed;
+  top: 500px;
+  left: 600px;
 }
