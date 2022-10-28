@@ -23,6 +23,7 @@ module.exports = class SubComment extends Sequelize.Model{
     static associate(db){
         db.SubComment.belongsTo(db.Post,{foreignKey:"postId",sourceKey:"id",onDelete:"cascade",onUpdate:"cascade"});
         db.SubComment.belongsTo(db.Comment,{foreignKey:"commentId",sourceKey:"id",onDelete:"cascade",onUpdate:"cascade"});
+        db.SubComment.belongsTo(db.User,{foreignKey:"userId",sourceKey:"id",onDelete:"cascade",onUpdate:"cascade"});
         
     }
 }

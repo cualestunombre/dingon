@@ -1,0 +1,134 @@
+.right-title > div {
+  margin: 15px 0 20px 10px;
+}
+.fix-input {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+.right-list > hr {
+  margin: 30px 0;
+}
+
+.label {
+  margin: 10px 20px 10px 0;
+}
+.id,
+.nick {
+  margin-right: 40px;
+  font-weight: bold;
+}
+.password {
+  margin-right: 24px;
+  font-weight: bold;
+}
+.fixid,
+.fixpw,
+.refixpw {
+  padding-left: 5px;
+  margin: 10px 0;
+  height: 40px;
+  width: 281px;
+  border-radius: 10px;
+  border: 1px solid #4545ac;
+}
+.fixnick {
+  padding-left: 5px;
+  margin: 10px 0;
+  height: 40px;
+  width: 200px;
+  border-radius: 10px;
+  border: 1px solid #4545ac;
+}
+.nickConfirm {
+  height: 44px;
+  border: none;
+  color: white;
+  background-color: #4545ac;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 0 10px;
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+}
+.nickConfirm:hover {
+  cursor: pointer;
+}
+.nickConfirm:active{
+  box-shadow: 0px 0px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 2px;
+}
+.right-button {
+  display: flex;
+  justify-content: center;
+}
+
+.mypage-wrapper {
+  display: flex;
+}
+
+.mypage-left {
+  float: left;
+  width: 20%;
+}
+.mypage-right {
+  float: right;
+  width: 80%;
+}
+.right-title > hr {
+  width: 99%;
+  margin: 5px 0;
+}
+.left-mypage,
+.left-fix {
+  border: none;
+  padding: 15px 20px;
+  width: 150px;
+  background-color: transparent;
+  border-color: white black black white;
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+  border-style: solid solid solid solid;
+  border-width: 1px 1px 1px 1px;
+  font-weight: bold;
+  margin: 0 0 0 8px;
+}
+.left-mypage:active,
+.left-fix:active {
+  box-shadow: 0px 0px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 2px;
+}
+.left-mypage:hover,
+.left-fix:hover {
+  cursor: pointer;
+}
+.my-fix {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.fixBtn {
+  background-color: #9797de;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-weight: bold;
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+}
+.fixBtn:active {
+  box-shadow: 0px 0px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 2px;
+}
+
+.fixBtn:hover {
+  cursor: pointer;
+}
+.d-none {
+  display: none;
+}
+.color {
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 130px;
+}

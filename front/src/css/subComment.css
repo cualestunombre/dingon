@@ -1,0 +1,15 @@
+.subCommentFrame{
+    width: 97%;
+    height: 170px;
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+    padding: 10px;
+    padding-bottom: 0px;
+    
+}
+
+.buttonFrame{
+    display: flex;
+    justify-content: flex-end;
+    color: #4545AC;
+}

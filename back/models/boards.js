@@ -23,5 +23,6 @@ module.exports = class Board extends Sequelize.Model{
     }
     static associate(db){
         db.Board.belongsToMany(db.Post,{through:'concepts',onDelete:"cascade",onUpdate:"cascade"});
+        db.Board.hasMany(db.Post,{foreignKey:'boardId',targetKey:"id",onDelete:"cascade",onUpdate:"cascade"});
     }
 }

@@ -1,0 +1,49 @@
+.loginedbox {
+  display: flex;
+  height: 170px;
+  flex-direction: column;
+  width: 260px;
+  padding: 15px;
+  border: none;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px;
+}
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoutBtn {
+  color: white;
+  border: none;
+  margin: 7px 0;
+  padding: 10px 13px;
+  border-radius: 15px;
+  background-color: #4545ac;
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+}
+.create {
+  color: white !important;
+  border: none;
+  margin: 7px 0;
+  border-radius: 15px;
+  background-color: #4545ac;
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+}
+
+.logoutBtn:hover,
+.create:hover {
+  cursor: pointer;
+  background-color: #36368a;
+}
+.logoutBtn:active,
+.create:active {
+  box-shadow: 0px 0px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 2px;
+}

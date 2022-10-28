@@ -4,14 +4,15 @@ const morgan = require("morgan");
 const session = require("express-session");
 const dotenv = require("dotenv");
 const { sequelize } = require("./models");
-const { User } = require("./models");
+const { User, UserCount } = require("./models");
 const bcrypt = require("bcrypt");
 const app = express();
+const webSocket = require("./socket.js");
 dotenv.config();
 const cors = require("cors");
 const sessionMiddleware = session({
-  resave: false,
-  saveUninitialized: false,
+  resave: true,
+  saveUninitialized: true,
   secret: process.env.COOKIE_SECRET,
   cookie: {
     httpOnly: true,
@@ -21,7 +22,7 @@ const sessionMiddleware = session({
 });
 const passport = require("passport");
 sequelize
-  .sync({ alter: true })
+  .sync({ force: false })
   .then(() => {
     console.log("데이터베이스 연결 성공했습니다");
   })
@@ -33,6 +34,9 @@ const passportConfig = require("./passport");
 const authRouter = require("./routes/auth");
 const searchRouter = require("./routes/search");
 const postRouter = require("./routes/post");
+const galleryRouter = require("./routes/gallery");
+const commentRouter = require("./routes/comment");
+const profileRouter = require("./routes/profile");
 passportConfig();
 app.use(morgan("dev"));
 app.use(express.json());
@@ -52,24 +56,24 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
-app.use((req, res, next) => {
-  console.log(req.user);
-  next();
-});
+
 app.get("/", (req, res) => {
-  res.send({ code: "안녕하세요 저는 우석우 입니다" });
+  // res.send({ code: "안녕하세요 저는 우석우 입니다" });
 });
-app.use("/auth",authRouter);
-app.use("/search",searchRouter);
-app.use("/post",postRouter);
+app.use("/auth", authRouter);
+app.use("/search", searchRouter);
+app.use("/post", postRouter);
+app.use("/gallery", galleryRouter);
+app.use("/comment", commentRouter);
+app.use("/profile", profileRouter);
+const server = app.listen(8050, async () => {
+    await UserCount.destroy({ where: {} });
+});
+webSocket(server, app, sessionMiddleware);
 app.use((req, res, next) => {
   res.send({ code: 404 });
 });
 app.use((err, req, res, next) => {
   console.error(err);
   res.send({ code: 500 });
-});
-
-app.listen(8050, async () => {
-  console.log("실행");
 });

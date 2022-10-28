@@ -1,0 +1,23 @@
+.Footer{
+    width: 100vw;
+    height: 200px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 14px;
+}
+.inside{
+    padding-top: 80px;
+}
+.inside li{
+    text-decoration: none;
+    list-style-type: none;
+    display: inline;
+    padding: 10px;
+}
+.inside a{
+    text-decoration: none;
+    color: black;
+}
+.inside a:hover{
+    color: brown;
+}

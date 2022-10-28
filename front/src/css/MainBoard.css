@@ -1,0 +1,60 @@
+.mainBoardsBox {
+  width: 380px;
+  height: 280px;
+  box-shadow: rgba(0, 0, 0, 0.1) 10px 10px 12px;
+  display: inline-block;
+  /* margin-right: 20px; */
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  border-radius: 20px;
+}
+.mainBoardsBox:hover{
+  box-shadow: 1px 1px 7px 0px;
+}
+
+.mainBoardsBox::-webkit-scrollbar {
+
+  width: 8px;
+  display: none;
+}
+.mainBoardsBox::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: white;
+}
+.mainBoardsBox::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #8b8be6;
+}
+
+.boxPost {
+  /* border: 0.5px solid black; */
+  margin : 0px 0px 5px 10px; 
+  /* 위오아왼 */
+  font-size: 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+  /* text-align: left; */
+}
+.boxPost::-webkit-scrollbar {
+  display: none;
+}
+.boardTitle {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  background-color: rgb(69, 69, 172);
+  color: white;
+  width: 380px;
+  height: 30px;
+}
+.boardTitle:hover{
+  color: yellow;
+  font-size: 25px;
+  transition: all 0.2s;
+}
+.clicked{
+  font-size: 10px;
+}

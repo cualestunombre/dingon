@@ -1,0 +1,23 @@
+.box1 {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+.box2 {
+  position: absolute;
+  top: 20px;
+  left: 450px;
+}
+.box3 {
+  position: absolute;
+  top: 320px; 
+  left: 50px;
+}
+.box4 {
+  position: absolute;
+  top: 320px;
+  left: 450px;
+}
+a:link{
+  color:black;
+}

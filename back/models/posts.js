@@ -10,7 +10,7 @@ module.exports = class Post extends Sequelize.Model{
             }
             ,
             content:{
-                type:Sequelize.STRING(1000),
+                type:Sequelize.TEXT("long"),
                 allowNull:false,
             },
             clicked:{
@@ -34,6 +34,7 @@ module.exports = class Post extends Sequelize.Model{
         db.Post.hasMany(db.Comment,{foreignKey:"postId",targetKey:"id",onDelete:"cascade",onUpdate:"cascade"});
         db.Post.hasMany(db.SubComment,{foreignKey:"postId",targetKey:"id",onDelete:"cascade",onUpdate:"cascade"});
         db.Post.belongsToMany(db.User,{through:'likes',onDelete:"cascade",onUpdate:"cascade"});
+        db.Post.belongsToMany(db.User,{through:'dislikes',onDelete:"cascade",onUpdate:"cascade"});
         db.Post.belongsToMany(db.Board,{through:'concepts',onDelete:"cascade",onUpdate:"cascade"});
         db.Post.belongsTo(db.Board,{foreignKey:'boardId',sourceKey:"id",onDelete:"cascade",onUpdate:"cascade"});
     }

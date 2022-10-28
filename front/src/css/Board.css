@@ -1,0 +1,12 @@
+tr {
+    height: 2px;
+}
+tr td {
+    height: auto !important;
+ }
+:root{
+    height: 2px;
+}
+ .MuiTableRow-root{
+    height:2px
+ }
