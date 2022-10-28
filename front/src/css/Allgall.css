@@ -6,6 +6,7 @@
 }
 .top-div {
   display: flex;
+  margin: 0 0 0 49px;
 }
 .namesort {
   color: gray;
@@ -17,9 +18,20 @@
   color: white;
   border-radius: 10px;
   width: 150px;
-  padding: 8px 4px;
+  padding: 10px 15px;
   display: flex;
   justify-content: center;
+  border: none;
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+}
+.allSelect:hover{
+  cursor: pointer;
+  background-color: #36368a;
+}
+.allSelect:active {
+  box-shadow: 0px 0px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 2px;
 }
 .mid-div {
   border: 1px solid #4545ac;

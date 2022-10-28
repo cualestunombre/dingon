@@ -20,7 +20,14 @@ export default function Allgall() {
       <>
       <div className="wrapper">
         <div className="top-div">
-          <div className="allSelect">전체 갤러리</div>
+          <button onClick={()=>{
+            axios({
+              url:"http://localhost:8050/gallery/all",
+              method:"get"
+            }).then((response)=>{
+              setAll(response.data.list)
+            })
+          }} className="allSelect">전체 갤러리</button>
           {/* <div className="namesort">ㄱㄴㄷ순</div> */}
         </div>
         <div className="box-wrapper">
