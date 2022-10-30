@@ -129,7 +129,7 @@ export const Board = (props) => {
       });
   }, [name,checked]);
   useEffect(() => {
-    console.log("aaaaaaaaaaaaaaaaaa");
+    console.log("asdsad",page);
     if (err == false && total != 0) {
       let takeurl="gallery";
       if(checked){
@@ -145,7 +145,9 @@ export const Board = (props) => {
         )
         .then((data) => {
           console.log(data.data);
-          setList(data.data.list);
+          setList((prev)=>{
+            return [...data.data.list];
+          });
         });
     }
     if (total == 0) {
@@ -219,12 +221,12 @@ export const Board = (props) => {
                     sendDate += +date.getMinutes();
                     console.log(date.getDate());
                     return (
-                      <TableRow
+                      <TableRow 
                         align="center"
                         hover
                         role="checkbox"
                         tabIndex={-1}
-                        key={v.id}
+                        key={key}
                       >
                         <TableCell>{v.postId}</TableCell>
                         <TableCell>
