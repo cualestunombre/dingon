@@ -22,7 +22,7 @@ Passport<br/>
 
 
 ## 🔗Link
-[Dingon](http://13.125.130.218:3000/)
+[Dingon](http://13.125.60.4:3000/)
 
 ## 👍Awards
 ![REACT](https://user-images.githubusercontent.com/106897607/200311973-269262bf-d08a-4293-a6d5-58d07d44d020.png)
