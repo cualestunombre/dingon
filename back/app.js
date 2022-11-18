@@ -31,9 +31,9 @@ export default class App{
     }
     connectDB(){
         Sequelize.sequelize
-        .sync({ alter:true })
+        .sync()
         .then(() => {
-            console.log("데이터베이스 연결 성공했습니다");
+
         })
         .catch((err) => {
             console.error(err);
@@ -66,7 +66,6 @@ export default class App{
     initializeControllers(controllers){
         const router = Router();
         controllers.forEach((ele)=>{
-            console.log(ele);
             router.use(ele.router);
         });
         this.app.use(router);

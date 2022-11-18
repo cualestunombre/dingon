@@ -5,6 +5,7 @@ const session = require("express-session");
 const dotenv = require("dotenv");
 const { sequelize } = require("./models");
 const { User, UserCount } = require("./models");
+const bcrypt = require("bcrypt");
 const app = express();
 const webSocket = require("./socket.js");
 dotenv.config();
@@ -30,12 +31,12 @@ sequelize
   }); // DB연결
 
 const passportConfig = require("./passport");
-const authRouter = require("./routes/auth");
-const searchRouter = require("./routes/search");
-const postRouter = require("./routes/post");
-const galleryRouter = require("./routes/gallery");
-const commentRouter = require("./routes/comment");
-const profileRouter = require("./routes/profile");
+const authRouter = require("./routes/obsolete.auth");
+const searchRouter = require("./routes/obsolete.search");
+const postRouter = require("./routes/obsolete.post");
+const galleryRouter = require("./routes/obsolete.gallery");
+const commentRouter = require("./routes/obsolete.comment");
+const profileRouter = require("./routes/obsolete.profile");
 passportConfig();
 app.use(morgan("dev"));
 app.use(express.json());

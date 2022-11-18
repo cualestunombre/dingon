@@ -7,7 +7,7 @@ import Board from "./boards.js";
 import UserCount from "./userCount.js" 
 import Config from "../config.json" assert {type:"json"};;
 const db = {};
-const config = Config["development"];
+const config = Config["test"];
 const sequelize = new Sequelize(config.database,config.username,config.password, config);
 db.sequelize=sequelize;
 db.User = User;

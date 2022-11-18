@@ -78,7 +78,7 @@ export default class postController{
             data[0][0].dislike = newResponse[0].count;
             data[0][0].commentCount = response[0].count + response2[0].count;
             data[0][0].total = response[0].count;
-            console.log(data[0][0]);
+            
             res.send(data[0][0]);
         }
         catch(err){

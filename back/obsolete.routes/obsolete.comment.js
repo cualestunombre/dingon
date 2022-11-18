@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {Board,Comment,SubComment, User} = require("../models");
-const {isLoggedIn,isNotLoggedIn} = require("./middlewares");
+const {isLoggedIn,isNotLoggedIn} = require("../middlewares");
 const { QueryTypes } = require('sequelize');
 const { sequelize } = require("../models");
 router.get("/list",async(req,res,next)=>{

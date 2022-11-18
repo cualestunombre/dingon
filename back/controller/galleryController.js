@@ -11,6 +11,7 @@ export default class galleryController{
     }
     initializeRoutes(){
         const router = Router();
+        
         router
         .get("/",this.galleryInfo)
         .get("/list",this.galleryList)
