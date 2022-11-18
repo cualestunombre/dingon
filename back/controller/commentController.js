@@ -12,7 +12,7 @@ export default class CommentController{
     initializeRoutes(){
         const router = Router();
         router
-        .get("list",this.getList)
+        .get("/list",this.getList)
         .post("/",isLoggedIn,this.createComment)
         .post("/sub",isLoggedIn,this.createSubComment)
         .delete("/",isLoggedIn,this.deleteComment)
