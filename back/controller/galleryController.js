@@ -84,8 +84,8 @@ export default class galleryController{
    
         try{
             const name = decodeURI(req.query.name);
-            const data = await Sequelize.Board.findAll({where:{name:name}});
-        
+            const data = await Sequelize.Board.findAll({raw:true,where:{name:name}});
+
             if(data.length==0){
                 res.send({code:200});
             }
@@ -100,6 +100,8 @@ export default class galleryController{
     galleryAdd=async(req,res,next)=>{
         try{
             const name = req.body.name;
+            const flag = await Sequelize.Board.findAll({raw:true,where:{name:name}});
+            if (flag.length!=0) return res.send({code:400});
             const data = await Sequelize.Board.create({name:name});
             res.send({code:200});
         }
