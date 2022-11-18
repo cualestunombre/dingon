@@ -48,6 +48,7 @@ export default class postController{
             res.send({code:200});
         }
         catch(err){
+
             next(err);
         }
     }
@@ -63,6 +64,7 @@ export default class postController{
         try{
             //post:{content, clicked, createdAt,nickName, title,userId}}
             const num = await Sequelize.Post.findOne({where:{id:req.query.postId}});
+            if (!num) return res.send({code:400});
             await Sequelize.Post.update({clicked:num.clicked+1},{where:{id:req.query.postId}});
             const query = `select posts.title, posts.content, posts.clicked, posts.createdAt, users.nickName, users.id as userId from posts inner join users on posts.userId=users.id where posts.id="${req.query.postId}"`;
             const data = await Sequelize.sequelize.query(query,QueryTypes.SELECT);
@@ -78,6 +80,7 @@ export default class postController{
             data[0][0].dislike = newResponse[0].count;
             data[0][0].commentCount = response[0].count + response2[0].count;
             data[0][0].total = response[0].count;
+            data[0][0].code=200;
             
             res.send(data[0][0]);
         }
@@ -129,6 +132,8 @@ export default class postController{
     }
     like=async(req,res,next)=>{
         try{
+            const flag = await Sequelize.Post.findOne({where:{id:req.body.postId}});
+            if(!flag) return res.send({code:400});
             const data = await Sequelize.Like.findAll({where:{UserId:req.user.id,PostId:req.body.postId}});
             if (data.length!=0){
                 return res.send({code:400});
@@ -151,6 +156,8 @@ export default class postController{
     }
     dislike=async(req,res,next)=>{
         try{
+            const flag = await Sequelize.Post.findOne({where:{id:req.body.postId}});
+            if(!flag) return res.send({code:400});
             const data = await Sequelize.Dislike.findAll({where:{UserId:req.user.id,PostId:req.body.postId}});
             if (data.length!=0){
                 return res.send({code:400});
@@ -164,6 +171,8 @@ export default class postController{
     }
     postList=async(req,res,next)=>{
         try{
+            const flag= await Sequelize.Board.findOne({where:{name:decodeURI(req.query.name)}});
+            if(!flag) return res.send({code:400});
             const query = `select *,posts.id as postId from posts inner join boards on posts.boardId = boards.id inner join users on users.id = posts.userId inner join concepts on concepts.PostId = posts.id where boards.name="${decodeURI(req.query.name)}" ORDER BY posts.createdAt DESC LIMIT 10 OFFSET ${(req.query.page-1)*10}`;
             const data = await Sequelize.sequelize.query(query,{type:QueryTypes.SELECT});
             data.forEach(ele=>{

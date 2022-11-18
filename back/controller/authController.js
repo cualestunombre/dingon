@@ -42,9 +42,7 @@ export default class AuthController{
   }
   login = async (req, res, next) => {
     passport.authenticate("local", (authError, user, info) => {
-      if (info) {
-        console.log(info);
-      }
+      
       if (authError) {
         console.error(authError);
         return res.send({ code: 400 });
@@ -88,7 +86,7 @@ export default class AuthController{
       const Userdata = await User.findOne({
         where: { nickName: req.body.nickName },
       });
-      console.log( req.body.nickName, Userdata )
+
       if (Userdata) {
         res.send({ code: 400 });
       } else {

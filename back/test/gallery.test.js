@@ -1,4 +1,3 @@
-import { compareSync } from "bcrypt";
 import request from "supertest";
 import App from "../app.js";
 import AuthController from "../controller/authController.js";
@@ -71,13 +70,13 @@ describe("GET /gallery/list",()=>{
     test("해당 갤러리의 게시글 리스트를 가져옴",async()=>{
         await request(app).get(`/gallery/list?name=${encodeURI("야구")}&page=1`).expect((data)=>{
             const res = JSON.parse(data.text);
-            console.log(res);
             if(res.code!=200 || res.list.length!=0){
                 throw new Error("테스트 실패");
             }
         });
     });
 });
+
 
 afterAll(async()=>{
     await Sequelize.sequelize.sync({force:true});
