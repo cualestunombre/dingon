@@ -1,17 +1,17 @@
-const passport = require("passport");
-const localStrategy = require("passport-local").Strategy;
-const User = require("../models/users");
-const bcrypt = require("bcrypt");
-module.exports = () => {
+import passport  from "passport";
+import localStrategy from "passport-local"
+import Sequelize from "../models/index.js";
+import bcrypt from "bcrypt";
+export default () => {
   passport.use(
-    new localStrategy(
+    new localStrategy.Strategy(
       {
         usernameField: "email",
         passwordField: "password",
       },
       async (email, password, done) => {
         try {
-          const exUser = await User.findOne({ where: { email } });
+          const exUser = await Sequelize.User.findOne({ where: { email } });
           if (exUser) {
             const result = await bcrypt.compare(password, exUser.password);
             if (result) {

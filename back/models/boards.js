@@ -1,7 +1,5 @@
-const Sequelize = require("sequelize");
-
-
-module.exports = class Board extends Sequelize.Model{
+import Sequelize from "sequelize";
+export default class Board extends Sequelize.Model{
     static init(sequelize){
         return super.init({
             name:{

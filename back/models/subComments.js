@@ -1,7 +1,7 @@
-const Sequelize = require("sequelize");
+import Sequelize from "sequelize";
 
 
-module.exports = class SubComment extends Sequelize.Model{
+export default class SubComment extends Sequelize.Model{
     static init(sequelize){
         return super.init({
             content:{

@@ -1,7 +1,7 @@
-const Sequelize = require("sequelize");
+import Sequelize from "sequelize";
 
 
-module.exports = class UserCount extends Sequelize.Model{
+export default class UserCount extends Sequelize.Model{
     static init(sequelize){
         return super.init({
             socketId:{

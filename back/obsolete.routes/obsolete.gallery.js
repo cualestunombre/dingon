@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {Board} = require("../models");
-const {isLoggedIn,isNotLoggedIn} = require("./middlewares");
+const {isLoggedIn,isNotLoggedIn} = require("../middlewares");
 const { QueryTypes } = require('sequelize');
 const { sequelize } = require("../models");
 

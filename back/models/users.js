@@ -1,7 +1,7 @@
-const Sequelize = require("sequelize");
+import Sequelize from "sequelize";
 
 
-module.exports = class User extends Sequelize.Model{
+export default class User extends Sequelize.Model{
     static init(sequelize){
         return super.init({
             email:{

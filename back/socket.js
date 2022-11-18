@@ -1,18 +1,17 @@
-const SocketIO = require("socket.io");
-const cors = require("cors");
-const {UserCount} = require("./models");
+import { Server} from "socket.io";
+import Sequelize from "./models/index.js";
 
- module.exports = (server,app,sessionMiddleware)=>{
-    const io = SocketIO(server,{path:'/socket.io',  cors: {
+export default (server,app,sessionMiddleware)=>{
+    const io = new Server(server,{path:'/socket.io',  cors: {
         origin: "*",
         methods: ["GET", "POST"]
       }});
     app.set("io",io);
     const count = io.of("/count");
     count.on("connection",async(socket)=>{
-        await UserCount.create({socketId:socket.id});
+        await Sequelize.UserCount.create({socketId:socket.id});
         socket.on("disconnect",async()=>{
-            await UserCount.destroy({where:{socketId:socket.id}});
+            await Sequelize.UserCount.destroy({where:{socketId:socket.id}});
         });
     });
   
