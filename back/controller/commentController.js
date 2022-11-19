@@ -22,6 +22,8 @@ export default class CommentController{
     }
     getList=async(req,res,next)=>{
         try{
+            const flag = await Sequelize.Post.findOne({where:{id:req.query.postId}});
+            if (!flag) return res.send({code:400});
             const query = `select  comments.id ,users.id as userId, comments.content, comments.createdAt, users.nickName from comments inner join posts on posts.id = comments.postId inner join users on users.id = comments.userId where posts.id="${req.query.postId}" ORDER BY posts.createdAt DESC LIMIT 10 OFFSET ${(req.query.page-1)*10}`;
             const data = await Sequelize.sequelize.query(query,{type:QueryTypes.SELECT});
             for (let i=0;i<data.length;i++){
@@ -37,6 +39,8 @@ export default class CommentController{
     }
     createComment=async(req,res,next)=>{
         try{
+            const flag =await  Sequelize.Post.findOne({where:{id:req.body.postId}});
+            if(!flag) return res.send({code:400});
             await Sequelize.Comment.create({content:req.body.comment,userId:req.user.id,postId:req.body.postId});
             res.send({code:200});
         }
@@ -46,6 +50,8 @@ export default class CommentController{
     }
     createSubComment=async(req,res,next)=>{
         try{
+            const flag = await Sequelize.Comment.findOne({where:{postId:req.body.postId, id:req.body.commentId}});
+            if(!flag) return res.send({code:400});
             await Sequelize.SubComment.create({content:req.body.comment, userId:req.user.id, postId:req.body.postId,commentId:req.body.commentId});
             res.send({code:200});
         }
