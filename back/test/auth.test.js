@@ -19,9 +19,7 @@ const connectApp = new App([
 const app=connectApp.getServer();
 
 
-afterAll(async()=>{
-    await Sequelize.sequelize.sync({force:true});
-});
+
 
 describe("POST /auth/signup",()=>{
     test("로그인 안했을 때 회원가입",async()=>{
@@ -92,7 +90,7 @@ describe("POST /auth/logout",()=>{
     });
     test("로그아웃",async()=>{
         const agent = request.agent(app);
-        await agent
+        await agent 
             .post("/auth/login").send({email:"dntjrdn78@naver.com",password:"dntjrdn78"})
         await agent.post("/auth/logout").expect({code:200});
     });
@@ -104,4 +102,7 @@ describe("GET /auth/isLoggedIn",()=>{
             .post("/auth/login").send({email:"dntjrdn78@naver.com",password:"dntjrdn78"})
         await agent.get("/auth/isLoggedIn").expect({code:200,nickName:"우석우",userId:1,email:"dntjrdn78@naver.com"});
     });
+});
+afterAll(async()=>{
+    await Sequelize.sequelize.sync({force:true});
 });
